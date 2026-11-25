@@ -1,0 +1,984 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1557B8">
+<meta name="description" content="KR Ofertas: encontre promoções, produtos e cupons do Mercado Livre.">
+<title>KR Ofertas | Encontre as melhores ofertas</title>
+
+<style>
+:root {
+  --blue:#1557B8;
+  --dark:#103E80;
+  --orange:#FF861F;
+  --light:#F4F7FC;
+  --text:#18263D;
+  --muted:#718096;
+  --border:#E7ECF3;
+  --white:#FFFFFF;
+}
+
+* {box-sizing:border-box;margin:0;padding:0}
+
+body {
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--light);
+  color:var(--text);
+}
+
+a {text-decoration:none;color:inherit}
+button,input {font:inherit}
+button {cursor:pointer}
+
+/* BARRA SUPERIOR */
+
+.topbar {
+  background:#103E80;
+  color:white;
+  text-align:center;
+  padding:9px 12px;
+  font-size:12px;
+  letter-spacing:.3px;
+}
+
+/* CABEÇALHO */
+
+header {
+  background:white;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.header-content {
+  max-width:1250px;
+  margin:auto;
+  padding:17px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.logo {
+  font-size:29px;
+  font-weight:900;
+  color:var(--blue);
+  letter-spacing:-1.5px;
+  white-space:nowrap;
+}
+
+.logo span {color:var(--orange)}
+
+.search {
+  flex:1;
+  max-width:570px;
+  display:flex;
+  background:#F3F6FA;
+  border:1px solid #DCE4EF;
+  border-radius:9px;
+  overflow:hidden;
+}
+
+.search input {
+  flex:1;
+  min-width:0;
+  padding:14px;
+  border:0;
+  outline:none;
+  background:transparent;
+}
+
+.search button {
+  background:var(--orange);
+  color:white;
+  border:0;
+  padding:0 22px;
+  font-weight:800;
+}
+
+.header-actions {
+  display:flex;
+  gap:18px;
+  align-items:center;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.header-actions a:hover {color:var(--blue)}
+
+.nav {
+  border-top:1px solid var(--border);
+}
+
+.nav-content {
+  max-width:1250px;
+  margin:auto;
+  display:flex;
+  gap:30px;
+  padding:13px 22px;
+  overflow-x:auto;
+  white-space:nowrap;
+}
+
+.nav a {
+  font-size:13px;
+  color:#526176;
+  font-weight:600;
+}
+
+.nav a:hover {color:var(--blue)}
+
+/* BANNER PRINCIPAL */
+
+.container {
+  max-width:1250px;
+  margin:auto;
+  padding:24px 22px;
+}
+
+.hero {
+  min-height:355px;
+  border-radius:17px;
+  background:linear-gradient(110deg,#103E80,#1768D1);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  overflow:hidden;
+  position:relative;
+  padding:45px 55px;
+}
+
+.hero:after {
+  content:"KR";
+  position:absolute;
+  right:8%;
+  font-size:230px;
+  font-weight:900;
+  color:rgba(255,255,255,.07);
+  transform:rotate(-9deg);
+  pointer-events:none;
+}
+
+.hero-content {
+  max-width:560px;
+  z-index:1;
+}
+
+.hero-label {
+  color:#FFD09C;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.hero h1 {
+  font-size:clamp(35px,5vw,57px);
+  line-height:1.08;
+  margin:18px 0;
+  letter-spacing:-1.8px;
+}
+
+.hero h1 span {color:#FFB267}
+
+.hero p {
+  color:#DCE9FA;
+  line-height:1.7;
+  font-size:15px;
+}
+
+.hero-button {
+  display:inline-block;
+  background:var(--orange);
+  color:white;
+  padding:15px 25px;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:900;
+  margin-top:25px;
+}
+
+.hero-button:hover {background:#E96C09}
+
+.hero-decoration {
+  position:relative;
+  z-index:1;
+  width:210px;
+  height:210px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#FFB15F,#FF7417);
+  display:grid;
+  place-items:center;
+  box-shadow:0 20px 55px #061C3D55;
+  transform:rotate(-9deg);
+}
+
+.hero-decoration strong {
+  color:white;
+  font-size:65px;
+  letter-spacing:-5px;
+}
+
+/* BENEFÍCIOS */
+
+.benefits {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin:22px 0 35px;
+}
+
+.benefit {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:19px;
+  display:flex;
+  gap:13px;
+  align-items:center;
+}
+
+.benefit-icon {
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  background:#EAF2FF;
+  border-radius:10px;
+  font-size:21px;
+}
+
+.benefit strong {
+  font-size:13px;
+  display:block;
+}
+
+.benefit small {
+  display:block;
+  margin-top:5px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+/* CATEGORIAS */
+
+.section-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+  gap:10px;
+}
+
+.section-heading h2 {
+  font-size:23px;
+  letter-spacing:-.5px;
+}
+
+.section-heading a {
+  color:var(--blue);
+  font-size:12px;
+  font-weight:bold;
+}
+
+.categories {
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:13px;
+  margin-bottom:38px;
+}
+
+.category {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:20px 10px;
+  text-align:center;
+  transition:.2s;
+  cursor:pointer;
+}
+
+.category:hover {
+  border-color:var(--blue);
+  transform:translateY(-3px);
+}
+
+.category-icon {
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.category strong {
+  font-size:12px;
+}
+
+/* OFERTAS */
+
+.offers-section {
+  margin-bottom:40px;
+}
+
+.toolbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+  gap:12px;
+}
+
+.toolbar select {
+  border:1px solid var(--border);
+  background:white;
+  border-radius:7px;
+  padding:10px;
+  color:var(--text);
+}
+
+.products {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+
+.product {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  position:relative;
+  transition:.22s;
+}
+
+.product:hover {
+  transform:translateY(-5px);
+  box-shadow:0 12px 28px #193c7014;
+  border-color:#C7D8F1;
+}
+
+.product-image {
+  height:190px;
+  background:#F7F9FC;
+  display:grid;
+  place-items:center;
+  font-size:65px;
+  position:relative;
+}
+
+.product-image img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:15px;
+}
+
+.product-tag {
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:var(--orange);
+  color:white;
+  font-size:10px;
+  font-weight:900;
+  padding:7px 10px;
+  border-radius:5px;
+}
+
+.favorite {
+  position:absolute;
+  right:12px;
+  top:12px;
+  background:white;
+  border:1px solid var(--border);
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  color:#65748A;
+}
+
+.favorite.active {color:#E84B55}
+
+.product-info {padding:16px}
+
+.product-category {
+  color:var(--blue);
+  font-size:10px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.product h3 {
+  font-size:14px;
+  line-height:1.5;
+  margin:9px 0;
+  min-height:42px;
+}
+
+.product-description {
+  font-size:11px;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+
+.product-price {
+  font-size:18px;
+  font-weight:900;
+  margin-bottom:12px;
+}
+
+.product-price small {
+  display:block;
+  font-size:10px;
+  font-weight:normal;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.buy {
+  display:block;
+  background:var(--blue);
+  color:white;
+  text-align:center;
+  padding:12px;
+  border-radius:7px;
+  font-size:11px;
+  font-weight:900;
+  transition:.2s;
+}
+
+.buy:hover {background:var(--dark)}
+
+.empty {
+  grid-column:1/-1;
+  text-align:center;
+  background:white;
+  padding:45px 15px;
+  border-radius:12px;
+  color:var(--muted);
+}
+
+/* CUPONS */
+
+.coupon-banner {
+  background:linear-gradient(105deg,#FFF0E1,#FFF8F1);
+  border:1px solid #FFE0C3;
+  border-radius:14px;
+  padding:28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:35px;
+}
+
+.coupon-banner h2 {font-size:23px}
+
+.coupon-banner p {
+  color:#78512F;
+  font-size:13px;
+  margin-top:9px;
+}
+
+.coupon-banner a {
+  background:var(--orange);
+  color:white;
+  padding:14px 20px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+/* RODAPÉ */
+
+footer {
+  background:#103E80;
+  color:white;
+  padding:45px 22px 20px;
+}
+
+.footer-content {
+  max-width:1250px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:35px;
+}
+
+footer h3 {
+  font-size:19px;
+  margin-bottom:14px;
+}
+
+footer p,footer a {
+  color:#D2E1F5;
+  font-size:12px;
+  line-height:1.9;
+  display:block;
+}
+
+.footer-bottom {
+  max-width:1250px;
+  margin:30px auto 0;
+  border-top:1px solid #ffffff25;
+  padding-top:20px;
+  color:#D2E1F5;
+  font-size:11px;
+}
+
+/* RESPONSIVIDADE */
+
+@media(max-width:850px) {
+  .products {grid-template-columns:repeat(3,1fr)}
+  .categories {grid-template-columns:repeat(3,1fr)}
+  .hero-decoration {width:150px;height:150px}
+  .hero-decoration strong {font-size:48px}
+}
+
+@media(max-width:600px) {
+  .topbar {font-size:10px}
+  .header-content {
+    flex-wrap:wrap;
+    gap:13px;
+    padding:13px 15px;
+  }
+  .logo {font-size:25px}
+  .header-actions {display:none}
+  .search {order:3;max-width:none;flex-basis:100%}
+  .nav-content {gap:20px;padding:12px 15px}
+  .container {padding:16px 13px}
+  .hero {padding:32px 22px;min-height:290px}
+  .hero h1 {font-size:35px}
+  .hero-decoration {display:none}
+  .hero:after {right:-15%;font-size:150px}
+  .benefits {grid-template-columns:1fr;gap:9px;margin:15px 0 30px}
+  .benefit {padding:13px}
+  .categories {grid-template-columns:repeat(3,1fr);gap:8px}
+  .category {padding:14px 5px}
+  .category-icon {font-size:25px}
+  .category strong {font-size:10px}
+  .section-heading h2 {font-size:19px}
+  .products {grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .product-image {height:135px;font-size:45px}
+  .product-info {padding:11px}
+  .product h3 {font-size:12px;min-height:53px}
+  .product-price {font-size:15px}
+  .buy {font-size:10px;padding:11px 5px}
+  .coupon-banner {padding:20px;flex-direction:column;align-items:flex-start}
+  .footer-content {grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  🔥 KR OFERTAS — PROMOÇÕES E OPORTUNIDADES EM UM SÓ LUGAR
+</div>
+
+<header>
+  <div class="header-content">
+
+    <a class="logo" href="#">
+      KR<span>.</span> OFERTAS
+    </a>
+
+    <form class="search" id="searchForm">
+      <input id="searchInput"
+        placeholder="O que você está procurando?"
+        autocomplete="off">
+      <button type="submit">BUSCAR</button>
+    </form>
+
+    <div class="header-actions">
+      <a href="#ofertas">🛍️ Ofertas</a>
+      <a href="#cupons">🎟️ Cupons</a>
+      <a href="#favoritos">♡ Favoritos</a>
+    </div>
+
+  </div>
+
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="#">INÍCIO</a>
+      <a href="#categorias">CATEGORIAS</a>
+      <a href="#ofertas">OFERTAS</a>
+      <a href="#cupons">CUPONS</a>
+      <a href="#favoritos">FAVORITOS</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-label">SEU NOVO DESTINO DE ECONOMIA</div>
+
+      <h1>
+        ENCONTRE.<br>
+        COMPARE.<br>
+        <span>ECONOMIZE!</span>
+      </h1>
+
+      <p>
+        Os produtos que você procura, as oportunidades
+        que você merece. Descubra as melhores ofertas.
+      </p>
+
+      <a href="#ofertas" class="hero-button">
+        EXPLORAR OFERTAS →
+      </a>
+    </div>
+
+    <div class="hero-decoration">
+      <strong>KR</strong>
+    </div>
+  </section>
+
+  <section class="benefits">
+
+    <div class="benefit">
+      <div class="benefit-icon">🔎</div>
+      <div>
+        <strong>Encontre facilmente</strong>
+        <small>Pesquisa de produtos e ofertas</small>
+      </div>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon">🎟️</div>
+      <div>
+        <strong>Cupons e descontos</strong>
+        <small>Oportunidades em um só lugar</small>
+      </div>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon">🛒</div>
+      <div>
+        <strong>Compra na loja parceira</strong>
+        <small>Acesse o Mercado Livre</small>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="categorias">
+
+    <div class="section-heading">
+      <h2>Explore categorias</h2>
+    </div>
+
+    <div class="categories">
+
+      <div class="category" data-category="Eletrônicos">
+        <div class="category-icon">🎧</div>
+        <strong>Eletrônicos</strong>
+      </div>
+
+      <div class="category" data-category="Informática">
+        <div class="category-icon">💻</div>
+        <strong>Informática</strong>
+      </div>
+
+      <div class="category" data-category="Games">
+        <div class="category-icon">🎮</div>
+        <strong>Games</strong>
+      </div>
+
+      <div class="category" data-category="Casa">
+        <div class="category-icon">🏠</div>
+        <strong>Casa</strong>
+      </div>
+
+      <div class="category" data-category="Celulares">
+        <div class="category-icon">📱</div>
+        <strong>Celulares</strong>
+      </div>
+
+      <div class="category" data-category="Acessórios">
+        <div class="category-icon">⌚</div>
+        <strong>Acessórios</strong>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="offers-section" id="ofertas">
+
+    <div class="toolbar">
+      <div class="section-heading">
+        <h2>🔥 Ofertas selecionadas</h2>
+      </div>
+
+      <select id="sort">
+        <option value="recent">Mais recentes</option>
+        <option value="name">Nome A-Z</option>
+      </select>
+    </div>
+
+    <div class="products" id="products"></div>
+
+  </section>
+
+  <section class="coupon-banner" id="cupons">
+
+    <div>
+      <h2>🎟️ Central de cupons KR</h2>
+      <p>
+        Uma área especial para encontrar códigos
+        promocionais e oportunidades.
+      </p>
+    </div>
+
+    <a href="#ofertas">VER PROMOÇÕES →</a>
+
+  </section>
+
+  <section id="favoritos">
+    <div class="section-heading">
+      <h2>♡ Seus favoritos</h2>
+    </div>
+    <div class="products" id="favorites"></div>
+  </section>
+
+</main>
+
+<footer>
+
+  <div class="footer-content">
+
+    <div>
+      <h3>KR OFERTAS</h3>
+      <p>
+        Seu lugar para descobrir produtos,
+        promoções e oportunidades de economia.
+      </p>
+    </div>
+
+    <div>
+      <h3>Navegação</h3>
+      <a href="#">Início</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#ofertas">Ofertas</a>
+      <a href="#cupons">Cupons</a>
+    </div>
+
+    <div>
+      <h3>Informações</h3>
+      <p>Os preços e a disponibilidade são definidos
+      pelas lojas parceiras.</p>
+      <p>Alguns links poderão gerar comissão para o KR Ofertas.</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 KR Ofertas. Todos os direitos reservados.
+    Mercado Livre é uma marca de seu respectivo titular.
+  </div>
+
+</footer>
+
+<script>
+
+/* CATÁLOGO DE DEMONSTRAÇÃO
+   Substitua por ofertas reais quando integrar o sistema.
+*/
+
+const offers = [
+ {
+  id:1,
+  name:"Fone de ouvido Bluetooth",
+  category:"Eletrônicos",
+  description:"Exemplo de produto para demonstração.",
+  icon:"🎧",
+  price:"Consultar na loja",
+  url:"https://lista.mercadolivre.com.br/fone-bluetooth"
+ },
+ {
+  id:2,
+  name:"Notebook para estudos",
+  category:"Informática",
+  description:"Exemplo de produto para demonstração.",
+  icon:"💻",
+  price:"Consultar na loja",
+  url:"https://lista.mercadolivre.com.br/notebook"
+ },
+ {
+  id:3,
+  name:"Controle para videogame",
+  category:"Games",
+  description:"Exemplo de produto para demonstração.",
+  icon:"🎮",
+  price:"Consultar na loja",
+  url:"https://lista.mercadolivre.com.br/controle-gamer"
+ },
+ {
+  id:4,
+  name:"Smartphone Android",
+  category:"Celulares",
+  description:"Exemplo de produto para demonstração.",
+  icon:"📱",
+  price:"Consultar na loja",
+  url:"https://lista.mercadolivre.com.br/smartphone"
+ },
+ {
+  id:5,
+  name:"Relógio inteligente",
+  category:"Acessórios",
+  description:"Exemplo de produto para demonstração.",
+  icon:"⌚",
+  price:"Consultar na loja",
+  url:"https://lista.mercadolivre.com.br/smartwatch"
+ },
+ {
+  id:6,
+  name:"Acessórios para casa",
+  category:"Casa",
+  description:"Exemplo de produto para demonstração.",
+  icon:"🏠",
+  price:"Consultar na loja",
+  url:"https://lista.mercadolivre.com.br/acessorios-casa"
+ }
+];
+
+let selectedCategory = "Todos";
+let search = "";
+let favorites = JSON.parse(
+ localStorage.getItem("krFavorites") || "[]"
+);
+
+function createCard(item) {
+
+ const favorite = favorites.includes(item.id);
+
+ return `
+ <article class="product">
+
+  <div class="product-image">
+
+   <span class="product-tag">DEMONSTRAÇÃO</span>
+
+   <button class="favorite ${favorite?"active":""}"
+    onclick="toggleFavorite(${item.id})"
+    aria-label="Adicionar aos favoritos">
+    ${favorite?"♥":"♡"}
+   </button>
+
+   <span>${item.icon}</span>
+
+  </div>
+
+  <div class="product-info">
+
+   <span class="product-category">
+    ${item.category}
+   </span>
+
+   <h3>${item.name}</h3>
+
+   <p class="product-description">
+    ${item.description}
+   </p>
+
+   <div class="product-price">
+    ${item.price}
+    <small>Consulte preço e disponibilidade</small>
+   </div>
+
+   <a class="buy"
+    href="${item.url}"
+    target="_blank"
+    rel="noopener noreferrer">
+    CONSULTAR NA LOJA →
+   </a>
+
+  </div>
+
+ </article>`;
+}
+
+function render() {
+
+ let filtered = offers.filter(item => {
+
+  const matchesCategory =
+   selectedCategory === "Todos" ||
+   item.category === selectedCategory;
+
+  const matchesSearch =
+   item.name.toLowerCase().includes(search) ||
+   item.category.toLowerCase().includes(search);
+
+  return matchesCategory && matchesSearch;
+ });
+
+ const sort = document.getElementById("sort").value;
+
+ if(sort === "name") {
+  filtered.sort((a,b)=>a.name.localeCompare(b.name));
+ }
+
+ document.getElementById("products").innerHTML =
+  filtered.length
+  ? filtered.map(createCard).join("")
+  : `<div class="empty">Nenhum produto encontrado.</div>`;
+
+ const favoriteItems = offers.filter(
+  item => favorites.includes(item.id)
+ );
+
+ document.getElementById("favorites").innerHTML =
+  favoriteItems.length
+  ? favoriteItems.map(createCard).join("")
+  : `<div class="empty">Você ainda não adicionou favoritos.</div>`;
+}
+
+function toggleFavorite(id) {
+
+ if(favorites.includes(id)) {
+  favorites = favorites.filter(item=>item!==id);
+ } else {
+  favorites.push(id);
+ }
+
+ localStorage.setItem(
+  "krFavorites",
+  JSON.stringify(favorites)
+ );
+
+ render();
+}
+
+document.getElementById("searchForm")
+ .addEventListener("submit",function(e) {
+  e.preventDefault();
+  search = document.getElementById("searchInput")
+   .value.toLowerCase().trim();
+  selectedCategory = "Todos";
+  render();
+ });
+
+document.getElementById("sort")
+ .addEventListener("change",render);
+
+document.querySelectorAll(".category")
+ .forEach(button => {
+  button.addEventListener("click",function() {
+   selectedCategory = this.dataset.category;
+   render();
+   document.getElementById("ofertas")
+    .scrollIntoView({behavior:"smooth"});
+  });
+ });
+
+render();
+
+</script>
+</body>
+</html>
